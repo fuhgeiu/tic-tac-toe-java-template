@@ -90,7 +90,10 @@ public class InstantiatePlayers {
             else player1 = new Paladin(symbol);
 
         } else { // Classic mode
-            player1 = new Human('O');
+
+            char symbol = getPlayerSymbol();
+            player1Symbol = symbol;
+            player1 = new Human(symbol);
         }
     }
 
@@ -105,7 +108,9 @@ public class InstantiatePlayers {
             else player2 = new Paladin(symbol);
 
         } else { // Classic mode
-            player2 = new Human('X');
+
+            char symbol =  getPlayerSymbol();
+            player2 = new Human(symbol);
         }
     }
 }

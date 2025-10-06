@@ -61,8 +61,8 @@ public class GameData {
         else if (currentPlayer == player2) currentPlayer = player1;
     }
 
-    public char getPlayerOneSymbol() { return player1.getPlayerSymbol(); }
-    public char getPlayerTwoSymbol() { return player2.getPlayerSymbol(); }
+    public char getPlayerOneSymbol() { return player1.playerSymbolIs(); }
+    public char getPlayerTwoSymbol() { return player2.playerSymbolIs(); }
 
     // Player turns
     public void getSetSpot() {
@@ -76,11 +76,12 @@ public class GameData {
     }
 
     public char currentPlayerStatus() {
+
         if (currentPlayer == null) {
             System.out.println("current player is null");
             return '\0';
         }
-        return currentPlayer.getPlayerSymbol();
+        return currentPlayer.playerSymbolIs();
     }
 
     public char getWin() {
