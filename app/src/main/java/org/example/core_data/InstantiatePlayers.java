@@ -48,8 +48,10 @@ public class InstantiatePlayers {
     }
 
     private char getPlayerSymbol() {
+
         char symbol;
         while (true) {
+
             System.out.println("Enter your player symbol (first character will be used):");
             String input = sc.nextLine();
             if (input.isEmpty() || input.charAt(0) == ' ') {
@@ -76,6 +78,7 @@ public class InstantiatePlayers {
     }
 
     public void instantiatePlayer1() {
+
         if (gameMode == 1) {
             System.out.println("Player 1 choose your character");
             displayCharacterOptions();

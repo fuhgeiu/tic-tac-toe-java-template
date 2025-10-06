@@ -1,22 +1,10 @@
 package org.example.core_data;
 
-public class PlayerData {
+public interface PlayerData {
 
-    private char symbol;
+    char playerSymbolIs();
+    void setPlayerSymbol(char symbol);
 
-    public PlayerData(char symbol) {
-        this.symbol = symbol;
-    }
-
-    public char getPlayerSymbol() {
-        return symbol;
-    }
-
-    public void displayMenu(BoardData board) {
-        System.out.println("Displaying menu for player " + symbol);
-    }
-
-    public void validate(BoardData board) {
-        System.out.println("Validating move for player " + symbol);
-    }
+    void displayMenu(BoardData board);
+    void validate(BoardData board);
 }

@@ -2,7 +2,7 @@ package org.example.core_data;
 
 import java.util.Scanner;
 
-public class Human implements PlayerDataType {
+public class Human implements PlayerData {
 
     private char playerSymbol;
 

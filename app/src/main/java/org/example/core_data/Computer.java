@@ -1,10 +1,11 @@
 package org.example.core_data;
 
-public class Computer implements PlayerDataType {
+public class Computer implements PlayerData {
 
     private char playerSymbol = 'c';
 
     public Computer() {}
+
     public Computer(char symbol) {
         this.playerSymbol = symbol;
     }

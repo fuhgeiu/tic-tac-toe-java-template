@@ -2,11 +2,12 @@ package org.example.core_data;
 
 import java.util.Scanner;
 
-public class Alchemist implements PlayerDataType {
+public class Alchemist implements PlayerData {
 
     private char playerSymbol;
 
     public Alchemist() {}
+
     public Alchemist(char symbol) {
         this.playerSymbol = symbol;
     }

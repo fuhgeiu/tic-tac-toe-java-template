@@ -66,7 +66,7 @@ public class GameData {
 
     // Player turns
     public void getSetSpot() {
-        
+
         if (currentPlayer == null) {
             System.out.println("Error: " + new CException.AccessNullptr("current player not assigned"));
             return;
