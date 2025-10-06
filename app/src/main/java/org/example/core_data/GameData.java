@@ -15,6 +15,7 @@ public class GameData {
     public GameData() {}
 
     public GameData(PlayerData player1, PlayerData player2) {
+
         this.player1 = player1;
         this.player2 = player2;
 
@@ -23,6 +24,7 @@ public class GameData {
     }
 
     public GameData(PlayerData player1, PlayerData player2, int boardInitializeSize) {
+
         this.player1 = player1;
         this.player2 = player2;
         this.boardDataObj = new BoardData(boardInitializeSize);
@@ -33,6 +35,7 @@ public class GameData {
     }
 
     public GameData(PlayerData player1, PlayerData player2, PlayerData starter, int boardSize) {
+
         this.player1 = player1;
         this.player2 = player2;
         this.currentPlayer = starter;
@@ -40,10 +43,12 @@ public class GameData {
     }
 
     public GameData(char startingPlayer) {
+
         this.currentPlayerC = startingPlayer;
     }
 
     public GameData(char startingPlayer, char player1Symbol, char player2Symbol) {
+
         this.currentPlayerC = startingPlayer;
         this.player1C = player1Symbol;
         this.player2C = player2Symbol;
@@ -51,6 +56,7 @@ public class GameData {
 
     // Player switching
     public void switchPlayer() {
+
         if (currentPlayer == player1) currentPlayer = player2;
         else if (currentPlayer == player2) currentPlayer = player1;
     }
@@ -60,6 +66,7 @@ public class GameData {
 
     // Player turns
     public void getSetSpot() {
+        
         if (currentPlayer == null) {
             System.out.println("Error: " + new CException.AccessNullptr("current player not assigned"));
             return;

@@ -1,6 +1,6 @@
 // page will be used to determine winner, and to return a chance of winning, and a hint, work in progress
 
-struct win {
+//struct win {
     
    // list of combinations, in order of selected spot
    
@@ -22,7 +22,7 @@ struct win {
     
     
     
-}
+//}
 
 
 // function

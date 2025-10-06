@@ -1,4 +1,4 @@
-package org.example.user_interface;
+package org.example.core_data;
 
 import java.util.Scanner;
 

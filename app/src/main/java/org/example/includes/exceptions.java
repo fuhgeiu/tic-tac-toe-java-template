@@ -1,42 +1,27 @@
-#ifndef exceptions_h
-#define exceptions_h
+package org.example.includes;
 
-#include <stdexcept>
+public class exceptions {
 
-namespace c_exception {
+    // thrown when user enters invalid input type
+    public static class InvalidInputTypeException extends RuntimeException {
+        public InvalidInputTypeException(String message) {
+            super(message);
+        }
 
-namespace runtime {
+        public String additionalInfo() {
+            return "Wrong data type";
+        }
+    }
 
+    // thrown when an object fails to instantiate (optional, e.g., factory fails)
+    public static class FailedInstantiationException extends RuntimeException {
+        public FailedInstantiationException(String message) {
+            super(message);
+        }
 
-struct acess_nullptr : public std::runtime_error {
+        public String additionalInfo() {
+            return "Warning! Failed instantiation";
+        }
+    }
 
-    acess_nullptr(const char* Message) : std::runtime_error (Message) {}
-
-    const char *additional_info() const { return "critical error! attempting to derefernce a nullptr"; }
-};
-
-
-struct invalid_input_type : public std::runtime_error {
-    
-    invalid_input_type (const char* Message) : std::runtime_error (Message) {}
-    
-    const char *additional_info() const { return "wrong data type";}
-};
-
-
-struct failed_instantiation : public std::runtime_error {
-    
-    failed_instantiation(const char* Message) : std::runtime_error(Message) {}
-    
-    const char *additional_info() const { return " Warning! failed instantiation"; }
-};
-
-
-} // end N runtime
-
-} // end N c_exception
-
-
-
-
-#endif /* exceptions_h */
+}
