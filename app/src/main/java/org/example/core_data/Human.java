@@ -32,7 +32,7 @@ public class Human implements PlayerData {
         int boardSpot;
         while (true) {
             System.out.println("Enter a number " + board.rangeLower() + " - " + board.rangeUpper());
-            System.out.print("spot {");
+            System.out.print("spot ->");
 
             if (!scanner.hasNextInt()) {
                 System.out.println("invalid input");
