@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.File;
 import java.nio.file.Paths;
 
-public class LoggerConsole implements Logger {
+public class LoggerConsoleSimple implements Logger {
 
     private String filename = "logfile.txt";
 

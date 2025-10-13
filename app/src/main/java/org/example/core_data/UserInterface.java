@@ -13,6 +13,7 @@ public class UserInterface {
     public void getGameMode() {
         Scanner sc = new Scanner(System.in);
         while (true) {
+
             if (sc.hasNextInt()) {
                 gameMode = sc.nextInt();
                 if (gameMode == 0 || gameMode == 1) break;

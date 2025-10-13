@@ -1,6 +1,6 @@
 package org.example;
 import org.example.core_data.InstantiatePlayers;
-import org.example.core_data.LoggerConsole;
+import org.example.core_data.LoggerConsoleSimple;
 import org.example.core_data.GameData;
 import org.example.core_data.UserInterface;
 
@@ -14,7 +14,7 @@ public class App {
         boolean keepRunning = true;
         int gamesPlayed = 0;
 
-        LoggerConsole logger = new LoggerConsole();
+        LoggerConsoleSimple logger = new LoggerConsoleSimple();
         logger.loggerStartup();
 
         Scanner sc = new Scanner(System.in);
@@ -40,6 +40,7 @@ public class App {
             boolean inGame = true;
 
             while (inGame) {
+
                 System.out.println("\n");
                 game.printBoardBoardData();
                 System.out.println("\nTurn -> " + game.currentPlayerStatus());
