@@ -91,10 +91,11 @@ public class InstantiatePlayers {
 
         } else { // Classic mode
 
+//      to allow player selection of symbol
 //            System.out.println("Player 1 choose your symbol");
 //            char symbol = getPlayerSymbol();
 //            player1Symbol = symbol;
-            
+
             player1 = new Human('o');        // must include to instantiate player
         }
     }
@@ -111,7 +112,7 @@ public class InstantiatePlayers {
 
         } else { // Classic mode
 
-
+//      to allow player selection of symbol
 //            System.out.println("Player 2 choose your symbol");
 //            char symbol =  getPlayerSymbol();
 

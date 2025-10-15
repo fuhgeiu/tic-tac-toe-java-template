@@ -6,9 +6,16 @@ substancial restructuring change
         - make game modes inherited classes of game mode
         - app will simply run a game mode and not contain a game mode itself
 
+
 non restructuring changes
 
-    - 
+    - add more exceptions
+
+features
+
+    - have setting to change if payers use default symbols or not
+    - settings for logger system
+        - change what logger logs
 
 
 
