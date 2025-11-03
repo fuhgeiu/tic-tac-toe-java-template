@@ -1,9 +1,12 @@
 package org.example.core_data;
 
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.File;
+import java.util.Scanner;
+
+import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 public class LoggerConsoleSimple implements Logger {
 
@@ -43,7 +46,46 @@ public class LoggerConsoleSimple implements Logger {
 
     public void loggerShowDataSimple() {
 
-        
+        try {
+
+            File FileObj = new File(filename);
+            Scanner Reader = new Scanner(FileObj);
+
+            while (Reader.hasNextLine()) {
+                String data = Reader.nextLine();
+                System.out.println(data);
+            }
+            Reader.close();
+
+        } catch (IOException e) {
+            System.err.println("error reding file: " + e.getMessage());
+        }
+    }
+
+    public void loggerShowDataFormat1 () {
+
+        try {
+
+            System.out.println("\n\n   Game Data In Current Session \n");
+
+            File FileObj = new File(filename);
+            Scanner Reader = new Scanner(FileObj);
+
+            int gameCount = 0;
+
+            while (Reader.hasNextLine()) {
+                String data = Reader.nextLine();
+                System.out.println("game " + (++gameCount) + " result = " + data);
+            }
+
+            Reader.close();
+            System.out.println(" \n");
+
+        }   catch (IOException e) {
+            System.err.println("error reding file: " + e.getMessage());
+        }
+
+
 
 
     }
