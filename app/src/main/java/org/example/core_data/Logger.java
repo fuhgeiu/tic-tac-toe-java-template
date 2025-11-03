@@ -4,4 +4,5 @@ public interface Logger {
 
     void loggerStartup();
     void loggerWriteData();
+    void loggerShowDataSimple();
 }

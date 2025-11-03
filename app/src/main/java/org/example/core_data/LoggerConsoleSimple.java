@@ -11,7 +11,9 @@ public class LoggerConsoleSimple implements Logger {
 
     @Override
     public void loggerStartup() {
+
         try {
+
             String cwd = Paths.get("").toAbsolutePath().toString();
             System.out.println("Current working directory: " + cwd);
 
@@ -26,10 +28,12 @@ public class LoggerConsoleSimple implements Logger {
 
     @Override
     public void loggerWriteData() {
+
         // Left empty for compatibility with interface
     }
 
     public void loggerWriteGamesPlayed(int games) {
+
         try (FileWriter fileWriter = new FileWriter(filename, true)) {
             fileWriter.write("Number of games played " + games + "\n");
         } catch (IOException e) {
@@ -37,8 +41,17 @@ public class LoggerConsoleSimple implements Logger {
         }
     }
 
+    public void loggerShowDataSimple() {
+
+        
+
+
+    }
+
     public void writeGameWinStatus(int win) {
+
         try (FileWriter fileWriter = new FileWriter(filename, true)) {
+
             if (win == 0) fileWriter.write("Player tie\n");
             else if (win == 1) fileWriter.write("Player one won\n");
             else if (win == 2) fileWriter.write("Player two won\n");

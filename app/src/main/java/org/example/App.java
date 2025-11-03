@@ -17,6 +17,8 @@ public class App {
         LoggerConsoleSimple logger = new LoggerConsoleSimple();
         logger.loggerStartup();
 
+        logger.loggerWriteData();
+
         Scanner sc = new Scanner(System.in);
 
         while (keepRunning) {
