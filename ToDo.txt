@@ -19,4 +19,37 @@ features
 
 
 
+UI adjustment
 
+
+    main menu 1
+
+//      Main menu
+//
+//  Play classic (0)
+//  Options (1)
+//
+
+
+    main menu 2
+
+//      Game Results In Current Session
+//
+//  game 1 = player 1 won
+//
+//      Main Mneu
+//
+//  Play Classic (0)
+//  Options (1)
+//
+
+
+    options menu
+
+//      Options
+//
+//  clear log before each session           on
+//  include date and time on log            on
+//  include total games played in session   on
+//  show log result on main menu            on
+//

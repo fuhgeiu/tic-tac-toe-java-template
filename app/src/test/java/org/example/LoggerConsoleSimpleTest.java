@@ -31,7 +31,7 @@ public class LoggerConsoleSimpleTest {
     void testWriteGameWinStatusPlayerOne() {
 
         LoggerConsoleSimple logger = new LoggerConsoleSimple();
-        logger.writeGameWinStatus(1);
+        logger.writeGameWinStatus(1,1);
         File file = new File("logfile.txt");
         assertTrue(file.exists());
     }
@@ -40,7 +40,7 @@ public class LoggerConsoleSimpleTest {
     void testWriteGameWinStatusPlayerTwo() {
 
         LoggerConsoleSimple logger = new LoggerConsoleSimple();
-        logger.writeGameWinStatus(2);
+        logger.writeGameWinStatus(2,1);
         File file = new File("logfile.txt");
         assertTrue(file.exists());
     }

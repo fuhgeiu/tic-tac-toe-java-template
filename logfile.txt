@@ -1,2 +1,1 @@
-Player tie
-Player one won
+game 1 = Player one won

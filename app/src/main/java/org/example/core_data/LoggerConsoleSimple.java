@@ -19,6 +19,7 @@ public class LoggerConsoleSimple implements Logger {
 
             String cwd = Paths.get("").toAbsolutePath().toString();
             System.out.println("Current working directory: " + cwd);
+            System.out.println("!!Game log is stored in current working directory!!");
 
             File file = new File(filename);
             if (!file.exists()) {
@@ -66,16 +67,14 @@ public class LoggerConsoleSimple implements Logger {
 
         try {
 
-            System.out.println("\n\n   Game Data In Current Session \n");
+            System.out.println("\n\n   Game Results In Current Session \n");
 
             File FileObj = new File(filename);
             Scanner Reader = new Scanner(FileObj);
 
-            int gameCount = 0;
-
             while (Reader.hasNextLine()) {
                 String data = Reader.nextLine();
-                System.out.println("game " + (++gameCount) + " result = " + data);
+                System.out.println(data);
             }
 
             Reader.close();
@@ -86,17 +85,32 @@ public class LoggerConsoleSimple implements Logger {
         }
 
 
-
-
     }
 
-    public void writeGameWinStatus(int win) {
+//    public int LastWonPlayer() {
+//
+//
+//
+//        return
+//    }
+
+    public void loggerClear() {
+
+        try {
+            FileWriter writer = new FileWriter(filename, false);
+        }
+        catch (Exception e) {
+            System.err.println("error operating on file: " + e.getMessage());
+        }
+    }
+
+    public void writeGameWinStatus(int win, int gamesPlayed) {
 
         try (FileWriter fileWriter = new FileWriter(filename, true)) {
 
-            if (win == 0) fileWriter.write("Player tie\n");
-            else if (win == 1) fileWriter.write("Player one won\n");
-            else if (win == 2) fileWriter.write("Player two won\n");
+            if (win == 0) fileWriter.write("game "+ gamesPlayed + " = Player tie\n");
+            else if (win == 1) fileWriter.write("game "+ gamesPlayed + " = Player one won\n");
+            else if (win == 2) fileWriter.write("game "+ gamesPlayed + " = Player two won\n");
         } catch (IOException e) {
             System.err.println("Error writing to log file: " + e.getMessage());
         }

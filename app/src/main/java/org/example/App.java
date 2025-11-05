@@ -17,13 +17,15 @@ public class App {
         LoggerConsoleSimple logger = new LoggerConsoleSimple();
         logger.loggerStartup();
 
-        logger.loggerShowDataFormat1();
+        logger.loggerClear();
 
         Scanner sc = new Scanner(System.in);
 
         while (keepRunning) {
 
             gamesPlayed++;
+
+            logger.loggerShowDataFormat1();
 
             // Show main menu and get game mode
             UserInterface mainMenu = new UserInterface();
@@ -38,6 +40,8 @@ public class App {
 
             // Instantiate game: pass in players and board size
             GameData game = new GameData(players.getPlayer1(), players.getPlayer2(), players.getPlayer1(), 9);
+
+            System.out.println("Classic mode");
 
             boolean inGame = true;
 
@@ -59,13 +63,13 @@ public class App {
                     if (winner == '\n') {
 
                         System.out.println("\nTie has occurred");
-                        logger.writeGameWinStatus(0);
+                        logger.writeGameWinStatus(0,gamesPlayed);
 
                     } else {
 
                         System.out.println("\nPlayer: " + winner + " WON");
-                        if (winner == game.getPlayerOneSymbol()) logger.writeGameWinStatus(1);
-                        if (winner == game.getPlayerTwoSymbol()) logger.writeGameWinStatus(2);
+                        if (winner == game.getPlayerOneSymbol()) logger.writeGameWinStatus(1,gamesPlayed);
+                        if (winner == game.getPlayerTwoSymbol()) logger.writeGameWinStatus(2,gamesPlayed);
                     }
 
                     System.out.println("\nPlay another game? Yes(1) No(0)");

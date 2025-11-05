@@ -8,5 +8,9 @@ public interface Logger {
 
     void loggerShowDataSimple();
 
+    int LastWonPlayer();
+
     void loggerShowDataFormat1();
+
+    void loggerClear();
 }
