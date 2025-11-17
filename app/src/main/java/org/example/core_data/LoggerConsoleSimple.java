@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoggerConsoleSimple implements Logger {
 
@@ -45,54 +46,54 @@ public class LoggerConsoleSimple implements Logger {
         }
     }
 
-    public void loggerShowDataSimple() {
 
-        try {
+    private List<String> readLogLines() {
 
-            File FileObj = new File(filename);
-            Scanner Reader = new Scanner(FileObj);
+        List<String> lines = new ArrayList<>();
 
-            while (Reader.hasNextLine()) {
-                String data = Reader.nextLine();
-                System.out.println(data);
+        try (Scanner reader = new Scanner(new File(filename))) {
+
+            while (reader.hasNextLine()) {
+                lines.add(reader.nextLine());
             }
-            Reader.close();
-
         } catch (IOException e) {
-            System.err.println("error reding file: " + e.getMessage());
+            System.err.println("Error reading file: " + e.getMessage());
         }
+
+        return lines;
     }
 
-    public void loggerShowDataFormat1 () {
 
-        try {
+    public void loggerShowDataSimple() {
 
-            System.out.println("\n\n   Game Results In Current Session \n");
+        List<String> lines = readLogLines();
+        for (String line : lines) System.out.println(line);
+    }
 
-            File FileObj = new File(filename);
-            Scanner Reader = new Scanner(FileObj);
+    public void loggerShowDataFormat1() {
 
-            while (Reader.hasNextLine()) {
-                String data = Reader.nextLine();
-                System.out.println(data);
-            }
+        System.out.println("\n\n   Game Results In Current Session \n");
 
-            Reader.close();
-            System.out.println(" \n");
+        List<String> lines = readLogLines();
+        for (String line : lines) System.out.println(line);
 
-        }   catch (IOException e) {
-            System.err.println("error reding file: " + e.getMessage());
-        }
-
-
+        System.out.println("\n");
     }
 
     public int LastWonPlayer() {
 
-        
+        List<String> lines = readLogLines();
+        if (lines.isEmpty()) return 0;
 
-        return
+        String lastLine = lines.get(lines.size() - 1);
+
+        if (lastLine.contains("Player 1 won")) return 1;
+        if (lastLine.contains("Player 2 won")) return 2;
+        if (lastLine.contains("Player tie")) return 0;
+
+        return -1;
     }
+
 
     public void loggerClear() {
 

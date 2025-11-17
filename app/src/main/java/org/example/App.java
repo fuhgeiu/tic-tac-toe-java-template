@@ -38,8 +38,9 @@ public class App {
             System.out.println();
             players.instantiatePlayer2();
 
-            // Instantiate game: pass in players and board size
-            GameData game = new GameData(players.getPlayer1(), players.getPlayer2(), players.getPlayer1(), 9);
+            if (logger.LastWonPlayer() == 1) {GameData game = new GameData(players.getPlayer1(), players.getPlayer2(), players.getPlayer1(), 9);}
+            if (logger.LastWonPlayer() == 2) {GameData game = new GameData(players.getPlayer1(), players.getPlayer2(), players.getPlayer2(), 9);}
+            if (logger.LastWonPlayer() == 3) {GameData game = new GameData(players.getPlayer1(), players.getPlayer2(), players.getPlayer1(), 9);}
 
             System.out.println("Classic mode");
 
@@ -49,6 +50,9 @@ public class App {
 
                 System.out.println("\n");
                 game.printBoardBoardData();
+
+
+
                 System.out.println("\nTurn -> " + game.currentPlayerStatus());
 
                 game.getSetSpot();   // get player move, validate, update
