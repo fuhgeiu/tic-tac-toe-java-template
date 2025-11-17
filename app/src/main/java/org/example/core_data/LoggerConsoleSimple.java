@@ -87,12 +87,12 @@ public class LoggerConsoleSimple implements Logger {
 
     }
 
-//    public int LastWonPlayer() {
-//
-//
-//
-//        return
-//    }
+    public int LastWonPlayer() {
+
+        
+
+        return
+    }
 
     public void loggerClear() {
 
@@ -109,8 +109,8 @@ public class LoggerConsoleSimple implements Logger {
         try (FileWriter fileWriter = new FileWriter(filename, true)) {
 
             if (win == 0) fileWriter.write("game "+ gamesPlayed + " = Player tie\n");
-            else if (win == 1) fileWriter.write("game "+ gamesPlayed + " = Player one won\n");
-            else if (win == 2) fileWriter.write("game "+ gamesPlayed + " = Player two won\n");
+            else if (win == 1) fileWriter.write("game "+ gamesPlayed + " = Player 1 " + "won\n");
+            else if (win == 2) fileWriter.write("game "+ gamesPlayed + " = Player 2 " + "won\n");
         } catch (IOException e) {
             System.err.println("Error writing to log file: " + e.getMessage());
         }
