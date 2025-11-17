@@ -92,6 +92,8 @@ public class GameData {
         boardDataObj.printBoard();
     }
 
+    public void set_current_player(PlayerData starter) {this.currentPlayer = starter;}
+
     // Primitive version (no player dependency)
     public void switchPlayerC() {
         if (currentPlayerC == player1C) currentPlayerC = player2C;

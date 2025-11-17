@@ -1,8 +1,6 @@
 package org.example;
-import org.example.core_data.InstantiatePlayers;
-import org.example.core_data.LoggerConsoleSimple;
-import org.example.core_data.GameData;
-import org.example.core_data.UserInterface;
+
+import org.example.core_data.*;
 
 
 import java.util.Scanner;
@@ -38,9 +36,11 @@ public class App {
             System.out.println();
             players.instantiatePlayer2();
 
-            if (logger.LastWonPlayer() == 1) {GameData game = new GameData(players.getPlayer1(), players.getPlayer2(), players.getPlayer1(), 9);}
-            if (logger.LastWonPlayer() == 2) {GameData game = new GameData(players.getPlayer1(), players.getPlayer2(), players.getPlayer2(), 9);}
-            if (logger.LastWonPlayer() == 3) {GameData game = new GameData(players.getPlayer1(), players.getPlayer2(), players.getPlayer1(), 9);}
+            GameData game = new GameData(players.getPlayer1(),players.getPlayer2(),players.getPlayer1(),9);
+
+            System.out.println(logger.LastWonPlayer());
+
+            if (logger.LastWonPlayer() == 1) {game.switchPlayer();}
 
             System.out.println("Classic mode");
 
@@ -50,8 +50,6 @@ public class App {
 
                 System.out.println("\n");
                 game.printBoardBoardData();
-
-
 
                 System.out.println("\nTurn -> " + game.currentPlayerStatus());
 

@@ -86,8 +86,8 @@ public class InstantiatePlayers {
             char symbol = getPlayerSymbol();
             player1Symbol = symbol;
 
-            if (charType == 1) player1 = new Alchemist(symbol);
-            else player1 = new Paladin(symbol);
+//            if (charType == 1) player1 = new Alchemist(symbol);
+//            else player1 = new Paladin(symbol);
 
         } else { // Classic mode
 
@@ -107,8 +107,8 @@ public class InstantiatePlayers {
             int charType = getCharacterType();
             char symbol = getPlayerSymbol();
 
-            if (charType == 1) player2 = new Alchemist(symbol);
-            else player2 = new Paladin(symbol);
+//            if (charType == 1) player2 = new Alchemist(symbol);
+//            else player2 = new Paladin(symbol);
 
         } else { // Classic mode
 

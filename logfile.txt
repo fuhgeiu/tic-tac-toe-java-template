@@ -1,1 +1,1 @@
-game 1 = Player one won
+game 1 = Player 1 won
