@@ -9,7 +9,7 @@ public class InstantiatePlayers {
     private PlayerData player1;
     private PlayerData player2;
 
-    private final Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
 
     public InstantiatePlayers(int gameMode) {
         this.gameMode = gameMode;
@@ -25,42 +25,43 @@ public class InstantiatePlayers {
         return player2;
     }
 
-    private void displayCharacterOptions() {
-        System.out.println(
-                "(1) Alchemist -> can swap 2 marks on the board\n" +
-                        "(2) Paladin -> can shift existing mark to adjacent spot\n"
-        );
-    }
 
-    private char getPlayerSymbol() {
+//    private void displayCharacterOptions() {
+//        System.out.println(
+//                "(1) Alchemist -> can swap 2 marks on the board\n" +
+//                        "(2) Paladin -> can shift existing mark to adjacent spot\n"
+//        );
+//    }
 
-        char symbol;
-        while (true) {
-
-            System.out.println("Enter your player symbol (first character will be used):");
-            String input = sc.nextLine();
-            if (input.isEmpty() || input.charAt(0) == ' ') {
-                System.out.println("Cannot be a blank space");
-                continue;
-            }
-            if (input.charAt(0) >= '0' && input.charAt(0) <= '9') {
-                System.out.println("Do not enter a number");
-                continue;
-            }
-            if (player1Symbol != '\0' && input.charAt(0) == player1Symbol) {
-                System.out.println("Symbol cannot be the same as Player 1");
-                continue;
-            }
-
-            symbol = input.charAt(0);
-
-            System.out.println("Is this correct symbol: " + symbol + " (0=No, 1=Yes)");
-            int verify = sc.nextInt();
-            sc.nextLine(); // consume newline
-            if (verify == 1) break;
-        }
-        return symbol;
-    }
+//    private char getPlayerSymbol() {
+//
+//        char symbol;
+//        while (true) {
+//
+//            System.out.println("Enter your player symbol (first character will be used):");
+//            String input = sc.nextLine();
+//            if (input.isEmpty() || input.charAt(0) == ' ') {
+//                System.out.println("Cannot be a blank space");
+//                continue;
+//            }
+//            if (input.charAt(0) >= '0' && input.charAt(0) <= '9') {
+//                System.out.println("Do not enter a number");
+//                continue;
+//            }
+//            if (player1Symbol != '\0' && input.charAt(0) == player1Symbol) {
+//                System.out.println("Symbol cannot be the same as Player 1");
+//                continue;
+//            }
+//
+//            symbol = input.charAt(0);
+//
+//            System.out.println("Is this correct symbol: " + symbol + " (0=No, 1=Yes)");
+//            int verify = sc.nextInt();
+//            sc.nextLine(); // consume newline
+//            if (verify == 1) break;
+//        }
+//        return symbol;
+//    }
 
     public void instantiatePlayer1() {
 
