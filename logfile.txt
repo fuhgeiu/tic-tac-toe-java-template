@@ -1,1 +1,2 @@
 game 1 = Player 1 won
+game 2 = Player 2 won

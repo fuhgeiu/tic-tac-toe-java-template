@@ -32,21 +32,6 @@ public class InstantiatePlayers {
         );
     }
 
-    private int getCharacterType() {
-        int type;
-        while (true) {
-            if (sc.hasNextInt()) {
-                type = sc.nextInt();
-                if (type == 1 || type == 2) break;
-            } else {
-                sc.next(); // discard invalid input
-            }
-            System.out.println("Invalid input, enter 1 or 2");
-        }
-        sc.nextLine();
-        return type;
-    }
-
     private char getPlayerSymbol() {
 
         char symbol;
@@ -79,17 +64,14 @@ public class InstantiatePlayers {
 
     public void instantiatePlayer1() {
 
-        if (gameMode == 1) {
-            System.out.println("Player 1 choose your character");
-            displayCharacterOptions();
-            int charType = getCharacterType();
-            char symbol = getPlayerSymbol();
-            player1Symbol = symbol;
-
-//            if (charType == 1) player1 = new Alchemist(symbol);
-//            else player1 = new Paladin(symbol);
-
-        } else { // Classic mode
+//        if (gameMode == 1) {
+//            System.out.println("Player 1 choose your character");
+//            displayCharacterOptions();
+//
+//            char symbol = getPlayerSymbol();
+//            player1Symbol = symbol;
+//
+//        } else { // Classic mode
 
 //      to allow player selection of symbol
 //            System.out.println("Player 1 choose your symbol");
@@ -97,26 +79,24 @@ public class InstantiatePlayers {
 //            player1Symbol = symbol;
 
             player1 = new Human('o');        // must include to instantiate player
-        }
+//        }
     }
 
     public void instantiatePlayer2() {
-        if (gameMode == 1) {
-            System.out.println("Player 2 choose your character");
-            displayCharacterOptions();
-            int charType = getCharacterType();
-            char symbol = getPlayerSymbol();
 
-//            if (charType == 1) player2 = new Alchemist(symbol);
-//            else player2 = new Paladin(symbol);
-
-        } else { // Classic mode
+//        if (gameMode == 1) {
+//            System.out.println("Player 2 choose your character");
+//            displayCharacterOptions();
+//
+//            char symbol = getPlayerSymbol();
+//
+//        } else { // Classic mode
 
 //      to allow player selection of symbol
 //            System.out.println("Player 2 choose your symbol");
 //            char symbol =  getPlayerSymbol();
 
             player2 = new Human('x');            // must include to instantiate player
-        }
+//        }
     }
 }
