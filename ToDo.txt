@@ -18,6 +18,20 @@ features
         - change what logger logs
 
 
+If it is the first move of the game (i.e. the board is empty), the opportunistic computer player marks one of the four corner spaces.
+If it is the second move of the game AND the center space is available, the opportunistic computer player marks the center space.
+If the opportunistic player can move in a space where it would win the game, it takes tht spot.
+If the opportunistic player can move in a space where it would block its opponent from winning, it takes that spot.
+The opportunistic player moves in a random spot on the board.
+
+
+
+
+
+
+
+
+
 
 UI adjustment
 

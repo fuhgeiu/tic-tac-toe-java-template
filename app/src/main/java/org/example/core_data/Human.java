@@ -28,9 +28,11 @@ public class Human implements PlayerData {
 
     @Override
     public void validate(BoardData board) {
+
         Scanner scanner = new Scanner(System.in);
         int boardSpot;
         while (true) {
+
             System.out.println("Enter a number " + board.rangeLower() + " - " + board.rangeUpper());
             System.out.print("spot ->");
 

@@ -1,13 +1,15 @@
 package org.example.core_data;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BoardData {
 
-    private char[] mData;
+    private char[] mData;           //store board in a single arry
     private int mLength;
     private int rangeUpper, rangeLower;
-    private Adjacent adjacentLists;
+    private Adjacent adjacentLists;             // adjacent spots of every spot each in an array
     private char[] adjacentSpots;
 
     public BoardData() {}
@@ -45,29 +47,31 @@ public class BoardData {
         return (i >= rangeLower && i <= rangeUpper);
     }
 
-    public boolean alchemistSpecialAvailable() {
-        int turnsTaken = 0;
-        for (int i = 0; i < mLength; i++) {
-            if (mData[i] != '1' + i) turnsTaken++;
-        }
-        return turnsTaken > 1;
-    }
-
-    public boolean paladinSpecialAvailable() {
-        int turnsTaken = 0;
-        for (int i = 0; i < mLength; i++) {
-            if (mData[i] != '1' + i) turnsTaken++;
-        }
-        return turnsTaken > 0;
-    }
-
     public boolean compareSymbols(char symbol, int spot) {
         return mData[spot] == symbol;
     }
 
     public boolean isEmpty(int spot) {
+
         char c = mData[spot - 1];
         return (c >= '1' && c <= '9');
+    }
+
+    public boolean isEmpty() {
+        for (char c : mData) {
+            if (c != ' ') return false;
+        }
+        return true;
+    }
+
+    public int countFilled() {
+
+        int count = 0;
+        for (char c : mData) {
+            if (c != ' ') count++;
+        }
+
+        return count;
     }
 
     public void swapMarks(int spot1, int spot2) {
@@ -89,7 +93,20 @@ public class BoardData {
         }
     }
 
+    public int[] getFreeSpaces () {
+
+        int[] free = new int[mLength];
+
+        for (int  i = 0; i < mLength; i++) {
+
+            if (Character.isDigit(mData[i]) ) free[i] = i;
+        }
+
+        return free;
+    }
+
     public void showAdjacentSpots(int spot) {
+
         allocateAdjacent(spot);
         System.out.print("available spots: ");
         for (char c : adjacentSpots) {
@@ -103,6 +120,11 @@ public class BoardData {
             if (c - '0' == spot) return true;
         }
         return false;
+    }
+
+    public void undo(int i) {
+
+        mData[i] = mData[i + 1];
     }
 
     public void shiftSymbol(int spot1, int spot2) {
@@ -137,16 +159,19 @@ public class BoardData {
         return isFull() ? '\n' : '\0';
     }
 
-    // test
-    public boolean testBoardContainer() {
-        char[] expected = {'1','2','3','4','5','6','7','8','9'};
-        boolean isCorrect = true;
-        for (int i = 0; i < mLength; i++) {
-            if (mData[i] != expected[i]) {
-                System.out.println("Error at index " + i + ": expected " + expected[i] + ", got " + mData[i]);
-                isCorrect = false;
-            }
-        }
-        return isCorrect;
+    public boolean Won() {
+        // rows
+        if (mData[0] == mData[1] && mData[1] == mData[2]) return true;
+        if (mData[3] == mData[4] && mData[4] == mData[5]) return true;
+        if (mData[6] == mData[7] && mData[7] == mData[8]) return true;
+        // columns
+        if (mData[0] == mData[3] && mData[3] == mData[6]) return true;
+        if (mData[1] == mData[4] && mData[4] == mData[7]) return true;
+        if (mData[2] == mData[5] && mData[5] == mData[8]) return true;
+        // diagonals
+        if (mData[0] == mData[4] && mData[4] == mData[8]) return true;
+        if (mData[2] == mData[4] && mData[4] == mData[6]) return true;
+        return false;
     }
+
 }
