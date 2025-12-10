@@ -5,14 +5,19 @@ import java.util.Scanner;
 public class UserInterface {
 
     private int menuMode;
-
-//    public void prompt() {
-//        System.out.println("    Main Menu \n\n Play Classic (0)\n Options (1)");
-//    }
+    private int firstPlayer;
 
     public void prompt() {
-        System.out.println("    Main Menu \n\n Play Classic (0)\n");
+
+        System.out.println(" Play Against Computer (0) \n\n Play Classic (1)\n");
     }
+
+    public void prompt(String prompt) {
+
+        System.out.print(prompt);
+    }
+
+    public int getFirstPlayer() {return firstPlayer;}
 
     public void getGameMode() {
 
@@ -21,21 +26,37 @@ public class UserInterface {
 
             if (sc.hasNextInt()) {
                 menuMode = sc.nextInt();
-//                if (menuMode == 0 || menuMode == 1) break;
-                if (menuMode == 1) break;
-                System.out.println("Must be either 0");
+                if (menuMode == 1 || menuMode == 0) break;
+                System.out.println("Must be either 0 or 1");
             } else {
                 System.out.println("Invalid input");
                 sc.next(); // discard invalid input
             }
         }
         sc.nextLine(); // consume leftover newline
-
     }
 
+    public void setFirstPlayer () {
 
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+
+            if (sc.hasNextInt()) {
+
+                firstPlayer = sc.nextInt();
+                if (firstPlayer == 1 || firstPlayer == 0) break;
+                System.out.println("Must be either 0 or 1");
+            } else {
+                System.out.println("Invalid input");
+                sc.next(); // discard invalid input
+            }
+        }
+        sc.nextLine(); // consume leftover newline
+    }
 
     public int getGameModeValue() {
+
         return menuMode;
     }
 }

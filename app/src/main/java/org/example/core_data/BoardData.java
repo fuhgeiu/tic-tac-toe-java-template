@@ -53,7 +53,7 @@ public class BoardData {
 
     public boolean isEmpty(int spot) {
 
-        char c = mData[spot - 1];
+        char c = mData[spot];
         return (c >= '1' && c <= '9');
     }
 
@@ -67,8 +67,10 @@ public class BoardData {
     public int countFilled() {
 
         int count = 0;
+
         for (char c : mData) {
-            if (c != ' ') count++;
+
+            if (Character.isDigit(c)) {count++;System.out.println("fefe");}
         }
 
         return count;
@@ -122,9 +124,12 @@ public class BoardData {
         return false;
     }
 
-    public void undo(int i) {
+    public char[] copyData() {
+        return mData.clone();
+    }
 
-        mData[i] = mData[i + 1];
+    public void restore(char[] previous) {
+        this.mData = previous.clone();
     }
 
     public void shiftSymbol(int spot1, int spot2) {
@@ -134,7 +139,7 @@ public class BoardData {
 
     public void setBoardData(int spot, char currentPlayer) {
         if (currentPlayer == '\0') System.out.println("WARNING: current player is null character");
-        mData[spot - 1] = currentPlayer;
+        mData[spot] = currentPlayer;
     }
 
     public boolean isFull() {

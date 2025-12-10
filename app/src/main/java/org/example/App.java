@@ -25,22 +25,51 @@ public class App {
 
             logger.loggerShowDataFormat1();
 
-            // Show main menu and get game mode
+            // Show main menu and get game mode   "play against computer" or "play classic"
             UserInterface mainMenu = new UserInterface();
             mainMenu.prompt();
-            mainMenu.getGameMode();
+            mainMenu.getGameMode();         // prompt and store game mode value
 
-            // Instantiate players based on game mode
             InstantiatePlayers players = new InstantiatePlayers(mainMenu.getGameModeValue());
-            players.instantiatePlayer1();
-            System.out.println();
-            players.instantiatePlayer2();
+
+
+
+            if (mainMenu.getGameModeValue() == 0) {
+
+                // prompt and set first player to computer or human, 0 is computer and 1 is human
+                mainMenu.prompt("who goes first? computer (0) human (1) ");
+                mainMenu.setFirstPlayer();
+
+                System.out.println(mainMenu.getFirstPlayer());
+
+                if (mainMenu.getFirstPlayer() == 1) {
+
+                    players.instantiatePlayer1();       // human
+                    System.out.println();
+                    players.instantiatePlayer2(true);
+
+                }  else {
+
+                    players.instantiatePlayer1(true);       // computer
+                    System.out.println();
+                    players.instantiatePlayer2();
+                }
+
+            } else {
+
+                players.instantiatePlayer1();
+                System.out.println();
+                players.instantiatePlayer2();
+            }
 
             GameData game = new GameData(players.getPlayer1(),players.getPlayer2(),players.getPlayer1(),9);
 
-            System.out.println(logger.LastWonPlayer());
+//            System.out.println(logger.LastWonPlayer());
 
-            if (logger.LastWonPlayer() == 1) {game.switchPlayer();}
+            if (mainMenu.getGameModeValue() == 1) {
+
+                if (logger.LastWonPlayer() == 1) {game.switchPlayer();}
+            }
 
             System.out.println("Classic mode");
 

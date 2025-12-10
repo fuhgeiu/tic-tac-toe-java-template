@@ -45,7 +45,9 @@ public class Computer implements PlayerData {
             }
         }
 
-        if (board.countFilled() == 1 && board.isEmpty(4)) {
+        if (board.countFilled() == 8 && board.isEmpty(4)) {
+
+            System.out.println("count filled is 1");
 
             board.setBoardData(4,playerSymbol);
             return;
@@ -54,11 +56,13 @@ public class Computer implements PlayerData {
         move = findWinningMove(board, playerSymbol);
 
         if (move != -1) {
+
             board.setBoardData(move,playerSymbol);
             return;
         }
 
         char opponent = (playerSymbol == 'X') ? 'O' : 'X';
+
         move = findWinningMove(board, opponent);
         if (move != -1) {
             board.setBoardData(move,playerSymbol);
@@ -77,10 +81,16 @@ public class Computer implements PlayerData {
 
             if (board.isEmpty(i)) {
 
-                board.setBoardData(i, s);
-                boolean win = board.Won();
-                board.undo(i);
-                if (win) return i;
+                char[] snapshot = board.copyData();
+
+                BoardData temp = new BoardData(9);
+                temp.restore(snapshot);
+
+                temp.setBoardData(i, s);
+
+                if (temp.Won()) {
+                    return i;
+                }
             }
         }
 

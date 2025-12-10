@@ -47,12 +47,12 @@ public class Human implements PlayerData {
                 System.out.println("out of range");
                 continue;
             }
-            if (!board.isEmpty(boardSpot)) {
+            if (!board.isEmpty(boardSpot-1)) {
                 System.out.println("spot is taken");
                 continue;
             }
             break;
         }
-        board.setBoardData(boardSpot, playerSymbol);
+        board.setBoardData(boardSpot-1, playerSymbol);
     }
 }
